@@ -57,8 +57,8 @@ int main(int argc, char *argv[])
 		int symbol=char_to_index[DATABUF[i]]; 
 		encode_symbol(symbol); 
 
-		//if(i<=31*512)
-          update_model(symbol);			  
+		//if(i<=13*512)
+		update_model(symbol);			  
 	} 
 	  
 	done_encoding();					 
