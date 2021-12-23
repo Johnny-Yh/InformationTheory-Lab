@@ -30,7 +30,8 @@ Point point[N] = {
 };  
   
 Point mean[K];  ///  save the center of each cluster  
-  
+
+// 计算每个点之间的距离  
 float getDistance(Point point1, Point point2)  
 {  
     float d;  
@@ -38,7 +39,8 @@ float getDistance(Point point1, Point point2)
     return d;  
 }  
   
-/// compute the center of each cluster  
+/// compute the center of each cluster
+// 重新计算每个簇的中心
 void getMean(int center[N])  
 {  
     Point tep;  
@@ -67,7 +69,8 @@ void getMean(int center[N])
     }  
 }  
   
-/// compute the mean square error  
+// compute the mean square error
+// 计算每个簇的均方差
 float getE()  
 {  
     int i, j;  
@@ -86,7 +89,8 @@ float getE()
     return sum;  
 }  
   
-/// Put N points in clusters  
+// Put N points in clusters
+// 将N个点根据距离分类到簇中
 void cluster()  
 {  
     int i, j, q;  
@@ -97,6 +101,7 @@ void cluster()
         min = 999999.0;  
         for(j = 0; j < K; ++j)  
         {  
+            // 计算每个点和簇中心的距离
             distance[i][j] = getDistance(point[i], mean[j]);  
   
             /* printf("%f\n", distance[i][j]);  /// used to measure the distance between each point and 3 centers*/  
@@ -105,6 +110,7 @@ void cluster()
         {  
             if(distance[i][q] < min)  
             {  
+                // 如果有距离更近的簇 那么就更新点所属于的簇
                 min = distance[i][q];  
                 center[i] = q;  
             }  
@@ -146,13 +152,13 @@ int main()
     mean[2].x = point[6].x;  
     mean[2].y = point[6].y;  
   
-    cluster();          /// Apply Clustering algorithm
+    cluster();         /// Apply Clustering algorithm
     temp1 = getE();        ///  Calculate mean square error for the fisrt time  
     n++;                   ///  n The nuber of iterations
   
     printf("The E1 is: %f\n\n", temp1);  
   
-    getMean(center);  
+    getMean(center); 
     cluster();  
     temp2 = getE();        ///   Re-calculate mean square based on the new cluster center
     n++;  
@@ -163,8 +169,8 @@ int main()
     {  
         temp1 = temp2;  
         getMean(center);  
-        cluster();  
-        temp2 = getE();  
+        cluster();
+        temp2 = getE();
         n++;  
         printf("The E%d is: %f\n", n, temp2);  
     }  
