@@ -176,5 +176,14 @@ int main(){
 
     printf("The total number of iteration is: %d\n\n", n);  // calcuate the number of iterations
 
+    FILE *och;
+    if( (och = fopen("c.raw", "wb" )) == nullptr ) {
+        cout << "failed to create output file\n";
+        exit(0);
+    }
+
+    fwrite(DATA, sizeof(unsigned char), 512 * 512, och);
+    fclose(och);
+
     return 0;
 }

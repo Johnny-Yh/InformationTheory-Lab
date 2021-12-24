@@ -42,7 +42,7 @@ int main(){
 
     FILE *och;
     if( (och = fopen("a.raw", "wb" )) == nullptr ) {
-        cout << "failed to create input file\n";
+        cout << "failed to create output file\n";
         exit(0);
     }
 
