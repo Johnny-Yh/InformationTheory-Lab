@@ -13,6 +13,7 @@ unsigned char DATABUF[512][512];
 
 
 unsigned char DATA[N];
+unsigned char DATA1[N];
 int center[N];
 double mean[K] ={16,48,80,112,144,176,208,240};
 
@@ -85,6 +86,7 @@ void cluster()
                 center[i] = q;
             }
         }
+        DATA1[i] = mean[center[i]];
     }
     printf("-----------------------------\n");
 }
@@ -182,7 +184,7 @@ int main(){
         exit(0);
     }
 
-    fwrite(DATA, sizeof(unsigned char), 512 * 512, och);
+    fwrite(DATA1, sizeof(unsigned char), 512 * 512, och);
     fclose(och);
 
     return 0;
