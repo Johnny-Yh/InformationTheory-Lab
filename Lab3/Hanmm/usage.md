@@ -1,0 +1,1 @@
+gcc -o hamming hamming.c -lm
