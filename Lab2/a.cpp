@@ -7,6 +7,7 @@
 using namespace std;
 
 unsigned char DATA[512][512];
+unsigned char DATA1[512][512];
 
 int main(){
     FILE *ich;
@@ -32,6 +33,7 @@ int main(){
             }else {
                 t = 224;
             }
+            DATA1[i][j] = t;
             mse += (t-DATA[i][j])*(t-DATA[i][j]);
         }
     }
@@ -46,7 +48,7 @@ int main(){
         exit(0);
     }
 
-    fwrite(DATA, sizeof(unsigned char), 512 * 512, och);
+    fwrite(DATA1, sizeof(unsigned char), 512 * 512, och);
     fclose(och);
 
     return 0;
