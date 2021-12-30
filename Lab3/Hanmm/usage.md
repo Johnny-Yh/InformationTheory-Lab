@@ -1,1 +1,1 @@
-gcc -o hamming hamming.c -lm
+g++ -o hamming hamming.c
