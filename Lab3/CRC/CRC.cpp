@@ -126,11 +126,7 @@ int main( int argc, char *argv[ ])
       crc1=0;
       crc1 = crc_calc(crc1, p , 16);	 
       printf("%d",crc1);
-
+      printf("\n");
+      
       return 0;
 }
-
-
-
-
-
